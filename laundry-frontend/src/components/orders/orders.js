@@ -5,8 +5,7 @@ import {BrowserRouter as Router,Switch,Link,Route} from "react-router-dom";
 export default function orders() {
   return (
       <div className="container">
-          <div>This is Order page</div>
-          <div>Lets check</div>
+          <h1>Helllo this is orders page working fine</h1>
       </div>
   )
 }
