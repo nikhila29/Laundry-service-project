@@ -1,3 +1,17 @@
-.user{
-    display: inline-block;
+.userimage{
+    width: 50px;
+    height: 50px;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:#182838;
+    color: white;
+    text-align: center;
+}
+.button{
+    width: 10%;
+
 }
