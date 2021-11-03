@@ -4,7 +4,7 @@ const mongoose  = require('mongoose')
 const PORT = 5000
 const {MONGOURI} = require('./keys')
 
-
+app.use(express.json())
 require('./models/user')
 app.use(require('./routes/auth'))
 
@@ -33,13 +33,10 @@ mongoose.connection.on('error',(err)=>{
 // app.use(require('./routes/auth'))
 // app.use(require('./routes/order'))
 
-app.listen(PORT,()=>{
-    console.log("server is running on",PORT)
-})
 
 
 
-app.use(express.json())
+
 
 app.listen(PORT,()=>{
     console.log("server is running on",PORT)
