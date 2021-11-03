@@ -5,33 +5,36 @@ const orderSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
-    order_Date&Time:{
+    order_DateTime:{
         type:Date(),timestamps:true,
         required:true
     },
-    email:{
-        type:String,
+    total_items:{
+        type:Number,
         required:true
     },
-    password:{
-        type:String,
+    total_price:{
+        type:Number,
+        required:true
+    },
+    status:{
+        type:String,Enum:[Pending,PickedUp,InProgress,ReadyToDeliver,Delivered,Cancelled],default:"pending",
+        required:true
+    },
+    store:{
+        type:mongoose.Schema.type.ObjectId,ref:"Store_Schema",
+        required:true
+    },
+    user:{
+        type:mongoose.Schema.type.ObjectId,ref:"User_Schema",
         required:true
     },
     address:{
         type:String,
         required:true
     },
-    district:{
-        type:String,
-        required:true
-    },
-    pincode:{
-        type:Number,
-        required:true
-    },
-    state:{
-        type:String,
-        required:true
+    cancellation:{
+        type:Boolean
     }
 })
 mongoose.model("Order",orderSchema)
