@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const {ObjectId} = mongoose.Schema.Types
 
 const itemSchema = new mongoose.Schema({
-    item_name:{
+    product_type:{
         type:String,Enum:[Shirt,T-shirt,Trousers,Jeans,Boxers,Joggers],
         required:true
     },

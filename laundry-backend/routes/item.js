@@ -3,6 +3,6 @@ const router = express.Router()
 const mongoose = require('mongoose')
 const Order =  mongoose.model("Order")
 
-router.post('/order', (req,res) => {
+router.post('/createorder', (req,res) => {
     const {}
 })
