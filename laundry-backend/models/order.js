@@ -18,15 +18,18 @@ const orderSchema = new mongoose.Schema({
         required:true
     },
     status:{
-        type:String,Enum:[Pending,PickedUp,InProgress,ReadyToDeliver,Delivered,Cancelled],default:"pending",
+        type:String,
+        Enum:[Pending,PickedUp,InProgress,ReadyToDeliver,Delivered,Cancelled],default:"pending",
         required:true
     },
     store:{
-        type:mongoose.Schema.type.ObjectId,ref:"Store_Schema",
+        type:mongoose.Schema.type.ObjectId,
+        ref:"Store_Schema",
         required:true
     },
     user:{
-        type:mongoose.Schema.type.ObjectId,ref:"User_Schema",
+        type:mongoose.Schema.type.ObjectId,
+        ref:"User_Schema",
         required:true
     },
     address:{
