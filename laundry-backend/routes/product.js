@@ -4,7 +4,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser');
 const requireLogin = require('../middleware/requireLogin')
 const Product =  mongoose.model("Product")
-const Product = require('../models/product')
+
 
 // Update Product Information
 router.post('/updateProduct', requireLogin,(req, res) => {
