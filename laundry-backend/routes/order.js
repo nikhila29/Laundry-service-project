@@ -8,7 +8,7 @@ const Order =  mongoose.model("Order")
 // Update Order Status
 router.post('/updateOrder', requireLogin,(req, res) => {
     const ap = req.body;
-    orders.updateOne(
+    Order.updateOne(
         { _id: ObjectId(ap.id) },
         {
             $set: { status: ap.status, progress: ap.progress }
@@ -28,7 +28,7 @@ router.post('/updateOrder', requireLogin,(req, res) => {
 // Update Order details
 router.post('/updateOrderDetails',requireLogin, (req, res) => {
     const od = req.body;
-    orders.updateOne(
+    Order.updateOne(
         { _id: ObjectId(od.id) },
         {
             $set: { shipment: od.shipment, products: od.products, price: od.price }
@@ -48,7 +48,7 @@ router.post('/updateOrderDetails',requireLogin, (req, res) => {
 // Added Place Order
 router.post('/addOrders', requireLogin,(req, res) => {
     const newOrder = req.body;
-    orders.insertOne(newOrder).then((result) => {
+    Order.insertOne(newOrder).then((result) => {
         res.send(result.insertedCount > 0);
     });
     // console.log(newOrder);
@@ -57,14 +57,14 @@ router.post('/addOrders', requireLogin,(req, res) => {
 // Get specific user Orders
 router.get('/orders', requireLogin,(req, res) => {
     // console.log(req.query.email);
-    orders.find({ email: req.query.email }).toArray((err, documents) => {
+    Order.find({ email: req.query.email }).toArray((err, documents) => {
         res.send(documents);
     });
 });
 
 // Get all Orders
 router.get('/allOrders',requireLogin, (req, res) => {
-    orders.find({}).toArray((err, documents) => {
+    Order.find({}).toArray((err, documents) => {
         res.send(documents);
     });
 });

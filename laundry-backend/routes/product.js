@@ -9,7 +9,7 @@ const Product =  mongoose.model("Product")
 // Update Product Information
 router.post('/updateProduct', requireLogin,(req, res) => {
     const pd = req.body;
-    products.updateOne(
+    Product.updateOne(
         { _id: ObjectId(pd.id) },
         {
             $set: { name: pd.name, price: pd.price }
@@ -28,15 +28,15 @@ router.post('/updateProduct', requireLogin,(req, res) => {
 
 // Get all products
 router.get('/products', requireLogin,(req, res) => {
-    products.find({}).toArray((err, documents) => {
+    Product.find({}).toArray((err, documents) => {
         res.send(documents);
     });
 });
 
 // Add Products in inventory
-router.post('/addProducts',requireLogin, (req, res) => {
+router.post('/addProducts',(req, res) => {
     const allProduct = req.body;
-    products.insertOne(allProduct).then((result) => {
+    Product.insertOne(allProduct).then((result) => {
         console.log(result.insertedCount);
         res.send(result.insertedCount > 0);
     });
@@ -46,7 +46,7 @@ router.post('/addProducts',requireLogin, (req, res) => {
 router.delete('/deleteProducts/:id', requireLogin,(req, res) => {
     console.log(req.params.id);
 
-    products.deleteOne({ _id: ObjectId(req.params.id) }).then((result) => {
+    Product.deleteOne({ _id: ObjectId(req.params.id) }).then((result) => {
         res.send(result.deletedCount > 0);
     });
 });
