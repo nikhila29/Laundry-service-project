@@ -1,9 +1,9 @@
 import React from "react";
-import "./register.css";
+import "./signup.css";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import footercircle from "../../assets/img/footer-circle.jpg";
 
-export default function register() {
+export default function signup() {
   return (
     <div className="container-fluid-body">
       <div className="jumbotron bg-light border-bottom">
@@ -56,7 +56,7 @@ export default function register() {
         </nav>
       </div>
       <div class="vh-100 row align-items-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
           <div className="d-flex justify-content-center left-align">
             <div>
               <div>
@@ -73,17 +73,17 @@ export default function register() {
                 </h5>
               </div>
               <div className="left">
-                <p className="text-muted">Don't Have An Account?</p>
-                <Link to={"/signup"}>
+                <p className="text-muted">Already Have Account</p>
+                <Link to={"/"}>
                   <button type="button" class="btn btn-primary">
-                    Register
+                    Sign In
                   </button>
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8">
           <section class="h-100 h-custom gradient-custom-2">
             <div class="container py-5 h-100">
               <div class="row d-flex justify-content-center align-items-center h-100">
@@ -93,48 +93,112 @@ export default function register() {
                       <div class="row g-0">
                         <div class="col-12">
                           <div class="p-5">
-                            <h1 class="fw-normal mb-5 text-primary">SIGN IN</h1>
+                            <h1 class="fw-normal mb-5 text-primary">
+                              REGISTER
+                            </h1>
                             <div class="row">
-                              <div class="col-md-12 mb-4 pb-2">
+                              <div class="col-md-6 mb-4 pb-2">
                                 <div class="form-outline">
-                                  <label
-                                    class="form-label text-primary"
-                                    for="form3Examplea8"
-                                  >
-                                    Mobile/Email
-                                  </label>
                                   <input
-                                    type="email"
+                                    type="text"
                                     id="form3Examplev2"
                                     class="form-control form-control-lg p-2"
+                                    placeholder="Name"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev3"
+                                    class="form-control form-control-lg p-2"
+                                    placeholder="Email"
                                   />
                                 </div>
                               </div>
                             </div>
                             <div class="row">
-                              <div class="col-md-12 mb-4 pb-2">
+                              <div class="col-md-6 mb-4 pb-2">
                                 <div class="form-outline">
-                                  <label
-                                    class="form-label text-primary"
-                                    for="form3Examplea8"
-                                  >
-                                    Password
-                                  </label>
                                   <input
-                                    type="password"
+                                    type="text"
                                     id="form3Examplev2"
                                     class="form-control form-control-lg p-2"
+                                    placeholder="Phone"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev2"
+                                    class="form-control form-control-lg p-2"
+                                    placeholder="State"
                                   />
                                 </div>
                               </div>
                             </div>
-                            <div className="text-right">
-                              <p className="text-primary">Forget Password?</p>
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev2"
+                                    class="form-control form-control-lg p-2"
+                                    placeholder="District"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-md-6 mb-4 pb-2">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev2"
+                                    class="form-control form-control-lg p-2"
+                                    placeholder="Address"
+                                  />
+                                </div>
+                              </div>
                             </div>
-                            <div className="text-center">
-                              <Link to={"/dashboard"}>
+                            <div class="row">
+                              <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+                                <div class="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev5"
+                                    class="form-control form-control-lg p-2"
+                                    placeholder="Pincode"
+                                  />
+                                </div>
+                              </div>
+                              <div class="col-md-6"></div>
+                            </div>
+                            <div className="justify-content-center">
+                              <div class="form-check mb-4 pt-5">
+                                <div>
+                                  <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value=""
+                                    id="form2Example3c"
+                                  />
+                                </div>
+                                <label
+                                  class="form-check-label text-muted text-center"
+                                  for="form2Example3"
+                                >
+                                  I do accept the{" "}
+                                  <a href="#!" class="text-muted">
+                                    <u>Terms and Conditions</u>
+                                  </a>{" "}
+                                  of your site.
+                                </label>
+                              </div>
+                              <Link to={"/"}>
                                 <button type="button" class="btn btn-primary">
-                                  Sign In
+                                  Register
                                 </button>
                               </Link>
                             </div>
