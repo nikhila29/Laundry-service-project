@@ -1,0 +1,13 @@
+.images{
+    width: 80px;
+    height: 80px;
+}
+.rows{
+    display: inline;
+}
+.wash-type{
+    padding: 0 0 0 100px;
+}
+.table-center{
+    padding: 0 0 0 6%
+}
