@@ -1,15 +1,21 @@
 {
-  "name": "laundry-backend",
+  "name": "backend",
   "version": "1.0.0",
   "description": "Laundry Service Backend",
   "main": "app.js",
   "scripts": {
+    "start": "node app",
+    "watch": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Nikhila Patel Badri",
+  "author": "team1",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
-    "nodemon": "^2.0.14"
+    "mongoose": "^6.0.12",
+    "nodemon": "^2.0.14",
+    "validator": "^13.7.0"
   }
 }
