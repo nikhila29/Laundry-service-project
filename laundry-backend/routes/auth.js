@@ -62,11 +62,11 @@ router.post('/register', (req,res) => {
 })
 
 router.post('/signin' ,(req,res) => {
-    const {email,password} = req.body
-    if (!email || !password){
+    const {email,phone,password} = req.body
+    if (!email || !phone || !password){
         return res.status(422).json({error:"please add email or password"})
     }
-    User.findOne({email:email})
+    User.findOne({ $or: [{ email:email} ,{phone : email}]})
     .then(savedUser => {
         if(!savedUser){
             return res.status(422).json({error:"Invalid Email or password"})
