@@ -99,7 +99,7 @@ router.get("/orders", requireLogin, async function (req, res) {
   }
 });
 
-router.post("/", requireLogin, async function (req, res) {
+router.post("/orders", requireLogin, async function (req, res) {
   const number = await Order.countDocuments();
   console.log("Variable -->", number);
   let order_num = "LUSORD0" + (number + 1);
@@ -154,7 +154,7 @@ router.post("/", requireLogin, async function (req, res) {
   });
 });
 
-router.delete("/:id", requireLogin, async function (req, res) {
+router.delete("/orders:id", requireLogin, async function (req, res) {
   const post = await Order.findOne({ _id: req.params.id });
   if (!post) {
     return res.status(404).json({
@@ -170,7 +170,7 @@ router.delete("/:id", requireLogin, async function (req, res) {
   });
 });
 
-router.get("/:id", requireLogin, async function (req, res) {
+router.get("/orders:id", requireLogin, async function (req, res) {
   try {
     const order = await Order.findOne({
       _id: mongoose.Types.ObjectId(req.params.id),
@@ -188,7 +188,7 @@ router.get("/:id", requireLogin, async function (req, res) {
   }
 });
 
-router.put("/:id", requireLogin, async function (req, res) {
+router.put("/orders:id", requireLogin, async function (req, res) {
   try {
     const order = await Order.findOneAndUpdate(
       {

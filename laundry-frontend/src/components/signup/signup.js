@@ -1,15 +1,79 @@
-import React from "react";
+import React, {useState} from "react";
 import "./signup.css";
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, Route,useHistory} from "react-router-dom";
 import footercircle from "../../assets/img/footer-circle.jpg";
+import M from 'materialize-css';
 
-export default function signup() {
+
+export default function Signup() {
+
+  const history = useHistory()
+  const [name,setName] = useState("")
+  const [email,setEmail] = useState("")
+  const [phone,setPhone] = useState("")
+  const [state,setState] = useState("")
+  const [district,setDistrict] = useState("")
+  const [address ,setAddress] = useState("")
+  const [pincode,setPincode] = useState("")
+  const [password,setPassword] = useState("")
+
+  const PostData = () => {
+
+    // if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+    //   M.toast({html:"Invalid email",classes:"#c62828 red darken-3"})
+    //   return
+    // }
+    fetch("/register",{
+      method:"post",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body:JSON.stringify({
+        name,
+        email,
+        phone,
+        state,
+        district,
+        address,
+        pincode,
+        password
+      })
+    }).then(res => res.json())
+     .then(data => {
+       console.log(data)
+       if(data.error){
+         M.toast({html: data.error,classes:"#c62828 red darken-3"})
+       }
+       else{
+        M.toast({html: data.message,classes:"#43a047 green darken-3"})
+        history.push('/')
+       }
+      
+     }).catch(err => {
+       console.log(err)
+     })
+   }
+
+
+
   return (
     <div className="container-fluid-body">
       <div className="jumbotron bg-light border-bottom">
         <nav className="navbar navbar-expand-lg">
           <div className="collapse navbar-collapse float-left">
-            <h3 className="text-primary p-4">LAUNDRY</h3>
+            <h3 className="text"
+          style={{color:"#5861AE",
+          top: "30px",
+          left: "119px",
+          width: "108px",
+          height: "27px",
+          textAlign: "left",
+          font: "normal normal 900 20px/27px Avenir",
+          letterSpacing:"1.8px",
+          textTransform: "uppercase",
+          opacity: "1",
+          }}
+          >LAUNDRY</h3>
             <button
               className="navbar-toggler"
               type="button"
@@ -29,21 +93,21 @@ export default function signup() {
             >
               <ul className="navbar-nav float-right">
                 <li className="nav-item active p-3">
-                  <a className="nav-link" href="#">
-                    Home <span class="sr-only">(current)</span>
+                  <a className="nav-link" href="#" style={{color:"#5861AE"}}>
+                    Home <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className="nav-item active p-3">
-                  <a className="nav-link" href="#">
-                    Pricing <span class="sr-only">(current)</span>
+                  <a className="nav-link" href="#"  style={{color:"#5861AE"}}>
+                    Pricing <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className="nav-item p-3">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="#"  style={{color:"#5861AE"}}>
                     Career
                   </a>
                 </li>
-                <div className="collapse navbar-collapse float-right p-3 bg-primary">
+                <div className="collapse navbar-collapse float-right p-3 bg-primary"  style={{color:"#5861AE"}}>
                   <li>
                     <a className="nav-link text-light" href="#">
                       Sign In
@@ -55,15 +119,15 @@ export default function signup() {
           </div>
         </nav>
       </div>
-      <div class="vh-100 row align-items-center">
-        <div class="col-md-4">
+      <div className="vh-100 row align-items-center">
+        <div className="col-md-4">
           <div className="d-flex justify-content-center left-align">
             <div>
               <div>
-                <h1 style={{ fontSize: "80px" }} className="text-primary">
+                <h1 style={{ fontSize: "100px",opacity: "1",font: "normal normal 900 62px/80px Avenir",color:"#5861AE"}} className="text">
                   Laundry
                 </h1>
-                <h1 style={{ fontSize: "80px" }} className="text-primary">
+                <h1  style={{ fontSize: "100px" ,font: "normal normal 900 62px/80px Avenir",color:"#5861AE"}}  className="text">
                   Service
                 </h1>
               </div>
@@ -75,7 +139,7 @@ export default function signup() {
               <div className="left">
                 <p className="text-muted">Already Have Account</p>
                 <Link to={"/"}>
-                  <button type="button" class="btn btn-primary">
+                  <button type="button" className="btn btn-primary">
                     Sign In
                   </button>
                 </Link>
@@ -83,121 +147,151 @@ export default function signup() {
             </div>
           </div>
         </div>
-        <div class="col-md-8">
-          <section class="h-100 h-custom gradient-custom-2">
-            <div class="container py-5 h-100">
-              <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12">
-                  <div class="card card-registration card-registration-2">
-                    <div class="card-body p-0">
-                      <div class="row g-0">
-                        <div class="col-12">
-                          <div class="p-5">
-                            <h1 class="fw-normal mb-5 text-primary">
+        <div className="col-md-8">
+          <section className="h-100 h-custom gradient-custom-2">
+            <div className="container py-5 h-100">
+              <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="col-12">
+                  <div className="card card-registration card-registration-2">
+                    <div className="card-body p-0">
+                      <div className="row g-0">
+                        <div className="col-12">
+                          <div className="p-5">
+                            <h1 className="fw-normal mb-5 text-primary">
                               REGISTER
                             </h1>
-                            <div class="row">
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
+                            <div className="row">
+                              <div className="col-md-6 mb-4 pb-2">
+                                <div className="form-outline">
                                   <input
                                     type="text"
                                     id="form3Examplev2"
-                                    class="form-control form-control-lg p-2"
-                                    placeholder="Name"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="name"
+                                    value = {name}
+                                    onChange = {(e) => setName(e.target.value)}
                                   />
                                 </div>
                               </div>
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
+                              <div className="col-md-6 mb-4 pb-2">
+                                <div className="form-outline">
                                   <input
                                     type="text"
                                     id="form3Examplev3"
-                                    class="form-control form-control-lg p-2"
-                                    placeholder="Email"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="email"
+                                    value = {email}
+                                    onChange = {(e) => setEmail(e.target.value)}
                                   />
                                 </div>
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
+                            <div className="row">
+                              <div className="col-md-6 mb-4 pb-2">
+                                <div className="form-outline">
                                   <input
                                     type="text"
                                     id="form3Examplev2"
-                                    class="form-control form-control-lg p-2"
-                                    placeholder="Phone"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="phone"
+                                    value = {phone}
+                                    onChange = {(e) => setPhone(e.target.value)}
                                   />
                                 </div>
                               </div>
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
+                              <div className="col-md-6 mb-4 pb-2">
+                                <div className="form-outline">
                                   <input
                                     type="text"
                                     id="form3Examplev2"
-                                    class="form-control form-control-lg p-2"
-                                    placeholder="State"
-                                  />
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
-                                  <input
-                                    type="text"
-                                    id="form3Examplev2"
-                                    class="form-control form-control-lg p-2"
-                                    placeholder="District"
-                                  />
-                                </div>
-                              </div>
-                              <div class="col-md-6 mb-4 pb-2">
-                                <div class="form-outline">
-                                  <input
-                                    type="text"
-                                    id="form3Examplev2"
-                                    class="form-control form-control-lg p-2"
-                                    placeholder="Address"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="state"
+                                    value = {state}
+                                    onChange = {(e) => setState(e.target.value)}
                                   />
                                 </div>
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
-                                <div class="form-outline">
+                            <div className="row">
+                              <div className="col-md-6 mb-4 pb-2">
+                                <div className="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev2"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="district"
+                                    value = {district}
+                                    onChange = {(e) => setDistrict(e.target.value)}
+                                  />
+                                </div>
+                              </div>
+                              <div className="col-md-6 mb-4 pb-2">
+                                <div className="form-outline">
+                                  <input
+                                    type="text"
+                                    id="form3Examplev2"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="address"
+                                    value = {address}
+                                    onChange = {(e) => setAddress(e.target.value)}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                            <div className="row">
+                              <div className="col-md-6 mb-4 pb-2 mb-md-0 pb-md-0">
+                                <div className="form-outline">
                                   <input
                                     type="text"
                                     id="form3Examplev5"
-                                    class="form-control form-control-lg p-2"
-                                    placeholder="Pincode"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="pincode"
+                                    value = {pincode}
+                                    onChange = {(e) => setPincode(e.target.value)}
                                   />
                                 </div>
                               </div>
-                              <div class="col-md-6"></div>
+                              <div className="col-md-6 mb-4 pb-2">
+                                <div className="form-outline">
+                                  <input
+                                    type="password"
+                                    id="form3Examplev2"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="password"
+                                    value = {password}
+                                    onChange = {(e) => setPassword(e.target.value)}
+                                  />
+                                </div>
+                              </div>
+
+                              
+                              <div className="col-md-6"></div>
                             </div>
                             <div className="justify-content-center">
-                              <div class="form-check mb-4 pt-5">
+                              <div className="form-check mb-4 pt-5">
                                 <div>
                                   <input
-                                    class="form-check-input"
+                                    className="form-check-input"
                                     type="checkbox"
                                     value=""
                                     id="form2Example3c"
                                   />
                                 </div>
                                 <label
-                                  class="form-check-label text-muted text-center"
+                                  className="form-check-label text-muted text-center"
                                   for="form2Example3"
                                 >
                                   I do accept the{" "}
-                                  <a href="#!" class="text-muted">
+                                  <a href="#!" className="text-muted">
                                     <u>Terms and Conditions</u>
                                   </a>{" "}
                                   of your site.
                                 </label>
                               </div>
                               <Link to={"/"}>
-                                <button type="button" class="btn btn-primary">
+                                <button type="button" className="btn btn-primary"
+                                onClick = {() => PostData()}
+                                >
                                   Register
                                 </button>
                               </Link>
@@ -220,12 +314,12 @@ export default function signup() {
         </h3>
         <p className="text-muted">*Terms and conditions will be applied</p>
       </div>
-      <div class="row align-items-center border-top">
-        <div class="col-sm-3 p-5">
+      <div className="row align-items-center border-top">
+        <div className="col-sm-3 p-5">
           <h5>ABOUT US</h5>
           <p>Doorstep Wash & Dryclean Service</p>
         </div>
-        <div class="col-sm-5 p-5">
+        <div className="col-sm-5 p-5">
           <table>
             <tr>
               <td className="text-dark footer-table">
@@ -254,7 +348,7 @@ export default function signup() {
             </tr>
           </table>
         </div>
-        <div class="col-sm-2 p-5">
+        <div className="col-sm-2 p-5">
           <h5>SOCIAL MEDIA</h5>
           <div className="social-media social-gap">
             <svg
@@ -319,7 +413,7 @@ export default function signup() {
             </svg>
           </div>
         </div>
-        <div class="col-sm-2 text-center">
+        <div className="col-sm-2 text-center">
           <img className="footer-circle" src={footercircle} />
         </div>
       </div>
@@ -331,3 +425,4 @@ export default function signup() {
     </div>
   );
 }
+

@@ -3,6 +3,8 @@ const app = express()
 const mongoose  = require('mongoose')
 const PORT = 4000
 const {MONGOURI} = require('./keys')
+const cors = require('cors')
+
 
 mongoose.connect(MONGOURI , {
     useNewUrlParser:true,
@@ -15,10 +17,11 @@ mongoose.connection.on('error',(err)=>{
     console.log("err connecting",err)
 })
 
-
+app.use(cors())
 require('./models/user')
 require('./models/order')
 app.use(express.json())
+app.use(express.json());
 
 app.use(require('./routes/auth'))
 app.use(require('./routes/order'))

@@ -1,9 +1,52 @@
-import React from "react";
+import React ,{useState,useContext} from "react";
 import "./register.css";
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Link, Route,useHistory } from "react-router-dom";
 import footercircle from "../../assets/img/footer-circle.jpg";
+import { UserContext } from "../../App";
+import M from 'materialize-css';
 
-export default function register() {
+
+export default function Register() {
+  //const {state,dispatch} = useContext(UserContext)
+  const history = useHistory()
+  const [email,setEmail] = useState("")
+  //const [phone,setPhone] = useState("")
+  const [password,setPassword] = useState("")
+
+  const PostData = () => {
+
+    // if (!/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email)){
+    //   M.toast({html:"Invalid email",classes:"#c62828 red darken-3"})
+    //   return
+    // }
+    fetch("/signin",{
+      method:"post",
+      headers:{
+        "Content-Type": "application/json"
+      },
+      body:JSON.stringify({
+        email,
+        //phone,
+        password
+      })
+    }).then(res => res.json())
+     .then(data => {
+       console.log(data)
+       if(data.error){
+         M.toast({html: data.error,classes:"#c62828 red darken-3"})
+       }
+       else{
+        localStorage.setItem("jwt",data.token)
+        localStorage.setItem("user",JSON.stringify(data.user))
+        //dispatch({type:"USER",payload:data.user})
+        M.toast({html:"signedin Successfully",classes:"#43a047 green darken-3"})
+        history.push('/dashboard')
+       }
+      
+     }).catch(err => {
+       console.log(err)
+     })
+   }
   return (
     <div className="container-fluid-body">
       <div className="jumbotron bg-light border-bottom">
@@ -30,12 +73,12 @@ export default function register() {
               <ul className="navbar-nav float-right">
                 <li className="nav-item active p-3">
                   <a className="nav-link" href="#">
-                    Home <span class="sr-only">(current)</span>
+                    Home <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className="nav-item active p-3">
                   <a className="nav-link" href="#">
-                    Pricing <span class="sr-only">(current)</span>
+                    Pricing <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className="nav-item p-3">
@@ -55,8 +98,8 @@ export default function register() {
           </div>
         </nav>
       </div>
-      <div class="vh-100 row align-items-center">
-        <div class="col-md-6">
+      <div className="vh-100 row align-items-center">
+        <div className="col-md-6">
           <div className="d-flex justify-content-center left-align">
             <div>
               <div>
@@ -75,7 +118,7 @@ export default function register() {
               <div className="left">
                 <p className="text-muted">Don't Have An Account?</p>
                 <Link to={"/signup"}>
-                  <button type="button" class="btn btn-primary">
+                  <button type="button" className="btn btn-primary">
                     Register
                   </button>
                 </Link>
@@ -83,22 +126,22 @@ export default function register() {
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <section class="h-100 h-custom gradient-custom-2">
-            <div class="container py-5 h-100">
-              <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12">
-                  <div class="card card-registration card-registration-2">
-                    <div class="card-body p-0">
-                      <div class="row g-0">
-                        <div class="col-12">
-                          <div class="p-5">
-                            <h1 class="fw-normal mb-5 text-primary">SIGN IN</h1>
-                            <div class="row">
-                              <div class="col-md-12 mb-4 pb-2">
-                                <div class="form-outline">
+        <div className="col-md-6">
+          <section className="h-100 h-custom gradient-custom-2">
+            <div className="container py-5 h-100">
+              <div className="row d-flex justify-content-center align-items-center h-100">
+                <div className="col-12">
+                  <div className="card card-registration card-registration-2">
+                    <div className="card-body p-0">
+                      <div className="row g-0">
+                        <div className="col-12">
+                          <div className="p-5">
+                            <h1 className="fw-normal mb-5 text-primary">SIGN IN</h1>
+                            <div className="row">
+                              <div className="col-md-12 mb-4 pb-2">
+                                <div className="form-outline">
                                   <label
-                                    class="form-label text-primary"
+                                    className="form-label text-primary"
                                     for="form3Examplea8"
                                   >
                                     Mobile/Email
@@ -106,16 +149,19 @@ export default function register() {
                                   <input
                                     type="email"
                                     id="form3Examplev2"
-                                    class="form-control form-control-lg p-2"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="email"
+                                    value = {email}
+                                    onChange = {(e) => setEmail(e.target.value)}
                                   />
                                 </div>
                               </div>
                             </div>
-                            <div class="row">
-                              <div class="col-md-12 mb-4 pb-2">
-                                <div class="form-outline">
+                            <div className="row">
+                              <div className="col-md-12 mb-4 pb-2">
+                                <div className="form-outline">
                                   <label
-                                    class="form-label text-primary"
+                                    className="form-label text-primary"
                                     for="form3Examplea8"
                                   >
                                     Password
@@ -123,7 +169,10 @@ export default function register() {
                                   <input
                                     type="password"
                                     id="form3Examplev2"
-                                    class="form-control form-control-lg p-2"
+                                    className="form-control form-control-lg p-2"
+                                    placeholder="password"
+                                    value = {password}
+                                    onChange = {(e) => setPassword(e.target.value)}
                                   />
                                 </div>
                               </div>
@@ -132,11 +181,15 @@ export default function register() {
                               <p className="text-primary">Forget Password?</p>
                             </div>
                             <div className="text-center">
-                              <Link to={"/dashboard"}>
-                                <button type="button" class="btn btn-primary">
+                              {/* <Link to={"/dashboard"}>  */}
+                                <button type="button" className="btn btn-primary"
+                                 onClick = {() => PostData()}
+                                 
+                                 >
                                   Sign In
                                 </button>
-                              </Link>
+      
+                              {/* </Link>  */}
                             </div>
                           </div>
                         </div>
@@ -156,12 +209,12 @@ export default function register() {
         </h3>
         <p className="text-muted">*Terms and conditions will be applied</p>
       </div>
-      <div class="row align-items-center border-top">
-        <div class="col-sm-3 p-5">
+      <div className="row align-items-center border-top">
+        <div className="col-sm-3 p-5">
           <h5>ABOUT US</h5>
           <p>Doorstep Wash & Dryclean Service</p>
         </div>
-        <div class="col-sm-5 p-5">
+        <div className="col-sm-5 p-5">
           <table>
             <tr>
               <td className="text-dark footer-table">
@@ -190,7 +243,7 @@ export default function register() {
             </tr>
           </table>
         </div>
-        <div class="col-sm-2 p-5">
+        <div className="col-sm-2 p-5">
           <h5>SOCIAL MEDIA</h5>
           <div className="social-media social-gap">
             <svg
@@ -255,7 +308,7 @@ export default function register() {
             </svg>
           </div>
         </div>
-        <div class="col-sm-2 text-center">
+        <div className="col-sm-2 text-center">
           <img className="footer-circle" src={footercircle} />
         </div>
       </div>

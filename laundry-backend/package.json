@@ -19,7 +19,6 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.12",
     "nodemon": "^2.0.14",
-    "objectid": "^3.2.1",
-    "validator": "^13.7.0"
+    "objectid": "^3.2.1"
   }
 }

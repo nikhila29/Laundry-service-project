@@ -30,7 +30,7 @@ export default function dashboard() {
               <ul className="navbar-nav float-right">
                 <li className="nav-item active p-3">
                   <a className="nav-link" href="#">
-                    Pricing <span class="sr-only">(current)</span>
+                    Pricing <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className="nav-item p-3">
@@ -49,7 +49,7 @@ export default function dashboard() {
                   </li>
                   <li>
                     <Link to={"/"}>
-                      <i class="bi bi-power fs-2 icon"></i>
+                      <i className="bi bi-power fs-2 icon"></i>
                     </Link>
                   </li>
                 </div>
@@ -58,46 +58,46 @@ export default function dashboard() {
           </div>
         </nav>
       </div>
-      <div class="row align-items-center">
-        <div style={{ width: "6%" }} class="col-md-1  bg-primary">
-          <div class="row sidenav">
-            <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top">
+      <div className="row align-items-center">
+        <div style={{ width: "6%" }} className="col-md-1  bg-primary">
+          <div className="row sidenav">
+            <div className="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top">
               <div>
-                <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
-                  <li class="nav-item">
+                <ul className="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                  <li className="nav-item">
                     <a
                       href="/dashboard"
-                      class="nav-link py-3 px-2"
+                      className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
                       data-bs-placement="right"
                       data-bs-original-title="Home"
                     >
-                      <i class="bi-house fs-2 icon"></i>
+                      <i className="bi-house fs-2 icon"></i>
                     </a>
                   </li>
                   <li>
                     <a
                       href="/orders"
-                      class="nav-link py-3 px-2"
+                      className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
                       data-bs-placement="right"
                       data-bs-original-title="Dashboard"
                     >
-                      <i class="bi-plus-circle-fill fs-2 icon"></i>
+                      <i className="bi-plus-circle-fill fs-2 icon"></i>
                     </a>
                   </li>
                   <li>
                     <a
                       href="/dashboard"
-                      class="nav-link py-3 px-2"
+                      className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
                       data-bs-placement="right"
                       data-bs-original-title="Orders"
                     >
-                      <i class="bi-list-ul fs-2 icon"></i>
+                      <i className="bi-list-ul fs-2 icon"></i>
                     </a>
                   </li>
                 </ul>
@@ -105,18 +105,18 @@ export default function dashboard() {
             </div>
           </div>
         </div>
-        <div class="col-md-11">
+        <div className="col-md-11">
           <div className="text-center">
             <p className="text-muted">No Orders Available</p>
             <Link to={"/orders"}>
-              <button type="button" class="btn btn-primary">
+              <button type="button" className="btn btn-primary">
                 Create
               </button>
             </Link>
           </div>
         </div>
       </div>
-      <div class="footer">
+      <div className="footer">
         <p>2021 © Laundry</p>
       </div>
     </div>

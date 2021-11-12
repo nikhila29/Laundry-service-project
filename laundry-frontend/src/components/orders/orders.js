@@ -35,7 +35,7 @@ export default function orders() {
               <ul className="navbar-nav float-right">
                 <li className="nav-item active p-3">
                   <a className="nav-link" href="#">
-                    Pricing <span class="sr-only">(current)</span>
+                    Pricing <span className="sr-only">(current)</span>
                   </a>
                 </li>
                 <li className="nav-item p-3">
@@ -54,7 +54,7 @@ export default function orders() {
                   </li>
                   <li>
                     <Link to={"/"}>
-                      <i class="bi bi-power fs-2 icon"></i>
+                      <i className="bi bi-power fs-2 icon"></i>
                     </Link>
                   </li>
                 </div>
@@ -63,46 +63,46 @@ export default function orders() {
           </div>
         </nav>
       </div>
-      <div class="row">
-        <div style={{ width: "6%" }} class="col-md-1  bg-primary">
-          <div class="row">
-            <div class="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top">
+      <div className="row">
+        <div style={{ width: "6%" }} className="col-md-1  bg-primary">
+          <div className="row">
+            <div className="d-flex flex-sm-column flex-row flex-nowrap align-items-center sticky-top">
               <div>
-                <ul class="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
-                  <li class="nav-item">
+                <ul className="nav nav-pills nav-flush flex-sm-column flex-row flex-nowrap mb-auto mx-auto text-center align-items-center">
+                  <li className="nav-item">
                     <a
                       href="/dashboard"
-                      class="nav-link py-3 px-2"
+                      className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
                       data-bs-placement="right"
                       data-bs-original-title="Home"
                     >
-                      <i class="bi-house fs-2 icon"></i>
+                      <i className="bi-house fs-2 icon"></i>
                     </a>
                   </li>
                   <li>
                     <a
                       href="/orders"
-                      class="nav-link py-3 px-2"
+                      className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
                       data-bs-placement="right"
                       data-bs-original-title="Dashboard"
                     >
-                      <i class="bi-plus-circle-fill fs-2 icon"></i>
+                      <i className="bi-plus-circle-fill fs-2 icon"></i>
                     </a>
                   </li>
                   <li>
                     <a
                       href="/dashboard"
-                      class="nav-link py-3 px-2"
+                      className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
                       data-bs-placement="right"
                       data-bs-original-title="Orders"
                     >
-                      <i class="bi-list-ul fs-2 icon"></i>
+                      <i className="bi-list-ul fs-2 icon"></i>
                     </a>
                   </li>
                 </ul>
@@ -110,18 +110,18 @@ export default function orders() {
             </div>
           </div>
         </div>
-        <div class="col-md-11 table-center" style={{ width: "85%" }}>
+        <div className="col-md-11 table-center" style={{ width: "85%" }}>
           <div style={{ padding: "30px 0 30px 0", width: "auto" }}>
             <h3>Create Order</h3>
           </div>
-          <div style={{ padding: "0 0 30px 0" }} class="row align-items-center">
+          <div style={{ padding: "0 0 30px 0" }} className="row align-items-center">
             <div className="col-md-3 bg-dark p-3 text-light">Product Type</div>
             <div className="col-md-1 bg-dark p-3 text-light">Quantity</div>
             <div className="col-md-4 bg-dark p-3 text-light">Wash Type</div>
             <div className="col-md-3 bg-dark p-3 text-light">Price</div>
             <div className="col-md-1 bg-dark p-3 text-light">Reset</div>
           </div>
-          <div class="row align-items-center" style={{ height: "100px" }}>
+          <div className="row align-items-center" style={{ height: "100px" }}>
             <div className="col-md-3 bg-light text-dark">
               <div className="row">
                 <div className="col-6" style={{ width: "auto" }}>
@@ -136,7 +136,7 @@ export default function orders() {
             <div className="col-md-1 bg-light text-dark">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 style={{ width: "50px" }}
                 id="pwd"
               />
@@ -317,7 +317,7 @@ export default function orders() {
             <div className="col-md-1 bg-light text-dark">Reset</div>
           </div>
           {/* Row Second Starts */}
-          <div class="row align-items-center" style={{ height: "150px" }}>
+          <div className="row align-items-center" style={{ height: "150px" }}>
             <div className="col-md-3 bg-light text-dark">
               <div className="row">
                 <div className="col-6" style={{ width: "auto" }}>
@@ -332,7 +332,7 @@ export default function orders() {
             <div className="col-md-1 bg-light text-dark">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 style={{ width: "50px" }}
                 id="pwd"
               />
@@ -514,7 +514,7 @@ export default function orders() {
           </div>
           {/* Row Second Ends */}
           {/* Row Third Starts */}
-          <div class="row align-items-center" style={{ height: "150px" }}>
+          <div className="row align-items-center" style={{ height: "150px" }}>
             <div className="col-md-3 bg-light text-dark">
               <div className="row">
                 <div className="col-6" style={{ width: "auto" }}>
@@ -529,7 +529,7 @@ export default function orders() {
             <div className="col-md-1 bg-light text-dark">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 style={{ width: "50px" }}
                 id="pwd"
               />
@@ -711,7 +711,7 @@ export default function orders() {
           </div>
           {/* Row Third Ends */}
           {/* Row Fourth Starts */}
-          <div class="row align-items-center" style={{ height: "150px" }}>
+          <div className="row align-items-center" style={{ height: "150px" }}>
             <div className="col-md-3 bg-light text-dark">
               <div className="row">
                 <div className="col-6" style={{ width: "auto" }}>
@@ -726,7 +726,7 @@ export default function orders() {
             <div className="col-md-1 bg-light text-dark">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 style={{ width: "50px" }}
                 id="pwd"
               />
@@ -908,7 +908,7 @@ export default function orders() {
           </div>
           {/* Row Fourth Ends */}
           {/* Row Fifth Starts */}
-          <div class="row align-items-center" style={{ height: "150px" }}>
+          <div className="row align-items-center" style={{ height: "150px" }}>
             <div className="col-md-3 bg-light text-dark">
               <div className="row">
                 <div className="col-6" style={{ width: "auto" }}>
@@ -923,7 +923,7 @@ export default function orders() {
             <div className="col-md-1 bg-light text-dark">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 style={{ width: "50px" }}
                 id="pwd"
               />
@@ -1113,19 +1113,19 @@ export default function orders() {
             }}
           >
             <div style={{ width: "100px", float: "right", margin: "0px" }}>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Proceed
               </button>
             </div>
             <div style={{ width: "100px", float: "right", margin: "0px" }}>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Cancel
               </button>
             </div>
           </div>
         </div>
       </div>
-      <div class="footer">
+      <div className="footer">
         <p>2021 © Laundry</p>
       </div>
     </div>

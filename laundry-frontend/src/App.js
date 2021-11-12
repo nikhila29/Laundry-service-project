@@ -1,9 +1,11 @@
-import React, {components} from "react";
+import React,{useEffect,createContext,useReducer,useContext} from 'react';
 import {BrowserRouter as Router,Switch,Link,Route} from "react-router-dom";
 import Register from "./components/register/register";
 import Dashboard from "./components/dashboard/dash";
 import Orders from "./components/orders/orders"
 import Signup from "./components/signup/signup"
+
+export const UserContext = createContext()
 class App extends React.Component {
   render() {
      return (
