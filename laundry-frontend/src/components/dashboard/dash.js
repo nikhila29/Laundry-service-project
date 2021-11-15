@@ -1,9 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import "./dash.css";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import user1 from "../../assets/img/user1.png";
 
-export default function dashboard() {
+export default function Dashboard() {
+  const history = useHistory();
+  function createlist() {
+    console.log("Hello");
+    history.push("/orderlist");
+  }
   return (
     <div className="container-fluid-body">
       <div className="jumbotron bg-light border-bottom">
@@ -78,7 +84,7 @@ export default function dashboard() {
                   </li>
                   <li>
                     <a
-                      href="/orders"
+                      href="/orderlist"
                       className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
@@ -90,7 +96,7 @@ export default function dashboard() {
                   </li>
                   <li>
                     <a
-                      href="/dashboard"
+                      href="/listview"
                       className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
@@ -108,7 +114,7 @@ export default function dashboard() {
         <div className="col-md-11">
           <div className="text-center">
             <p className="text-muted">No Orders Available</p>
-            <Link to={"/orders"}>
+            <Link to={"/orderlist"}>
               <button type="button" className="btn btn-primary">
                 Create
               </button>

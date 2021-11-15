@@ -52,7 +52,19 @@ export default function Register() {
       <div className="jumbotron bg-light border-bottom">
         <nav className="navbar navbar-expand-lg">
           <div className="collapse navbar-collapse float-left">
-            <h3 className="text-primary p-4">LAUNDRY</h3>
+            <h3 className="text" 
+            style={{color:"#5861AE",
+              top: "30px",
+              left: "119px",
+              width: "108px",
+              height: "27px",
+              textAlign: "left",
+              font: "normal normal 900 20px/27px Avenir",
+              letterSpacing:"1.8px",
+              textTransform: "uppercase",
+              opacity: "1",
+              }}
+            >LAUNDRY</h3>
             <button
               className="navbar-toggler"
               type="button"
@@ -88,7 +100,7 @@ export default function Register() {
                 </li>
                 <div className="collapse navbar-collapse float-right p-3 bg-primary">
                   <li>
-                    <a className="nav-link text-light" href="#">
+                    <a className="nav-link text-light"href="#">
                       Sign In
                     </a>
                   </li>
@@ -103,10 +115,10 @@ export default function Register() {
           <div className="d-flex justify-content-center left-align">
             <div>
               <div>
-                <h1 style={{ fontSize: "80px" }} className="text-primary">
+              <h1 style={{ fontSize: "100px",opacity: "1",font: "normal normal 900 62px/80px Avenir",color:"#5861AE"}} className="text">
                   Laundry
                 </h1>
-                <h1 style={{ fontSize: "80px" }} className="text-primary">
+                <h1  style={{ fontSize: "100px" ,font: "normal normal 900 62px/80px Avenir",color:"#5861AE"}}  className="text">
                   Service
                 </h1>
               </div>

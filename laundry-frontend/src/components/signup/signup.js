@@ -107,11 +107,13 @@ export default function Signup() {
                     Career
                   </a>
                 </li>
-                <div className="collapse navbar-collapse float-right p-3 bg-primary"  style={{color:"#5861AE"}}>
+                <div className="collapse navbar-collapse float-right p-3 bg-primary">
                   <li>
-                    <a className="nav-link text-light" href="#">
-                      Sign In
-                    </a>
+                  <button type="button " className="text-light" 
+                  style={{background:" #5861AE 0% 0% no-repeat padding-box",
+                  boxShadow: "0px 3px 6px #00000029",opacity: "1"}}>
+                    Sign In
+                  </button>
                   </li>
                 </div>
               </ul>
@@ -139,7 +141,7 @@ export default function Signup() {
               <div className="left">
                 <p className="text-muted">Already Have Account</p>
                 <Link to={"/"}>
-                  <button type="button" className="btn btn-primary">
+                  <button type="button" className="btn btn-#5861Ae"style={{color:"#5861AE"}}>
                     Sign In
                   </button>
                 </Link>
