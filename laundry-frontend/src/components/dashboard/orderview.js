@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Modal } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 //import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { clearToken, getToken } from "../../Utils/AuthOperations";
 import "font-awesome/css/font-awesome.min.css";
-import Orderheader from "../orders/orderheader";
-import Ordercomponent from "../orders/ordercomponent";
 import OrderedItems from "../orders/orderedItems"
 
-function Listview() {
+function Orderview() {
   const history = useHistory();
+  const [user, setUser] = useState("");
   const [count, setCount] = useState(0);
   function createlist() {
     console.log("Hello");
@@ -19,7 +19,7 @@ function Listview() {
   const [orders, setOrders] = useState([]);
   useEffect(() => {
      fetch("/orders", {
-        method:"get",
+        method:"get",//get
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${getToken()}`,
@@ -40,7 +40,27 @@ function Listview() {
   });
   return (
     <div>
-      <Orderheader />
+      <div>
+      <Navbar collapseOnSelect expand="lg" variant="dark" style={{color:"#5861AE",backgroundColor:"#5861AE"}}>
+        <Navbar.Brand href="#home" class="laundryhead" >
+          Laundry
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto"></Nav>
+          <Nav style={{fontWeight:"bold",color:"black"}}>
+            <Nav.Link href="#features">Pricing</Nav.Link>
+            <Nav.Link href="#features">Career</Nav.Link>
+            <Nav.Link href="#features">
+              <p class="signinlink">UserName
+                <img src={Image} class="img" alt="image1" />
+                {user}
+              </p>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-1 main-head">
@@ -60,7 +80,7 @@ function Listview() {
               <div class="col-lg-12">
                 <i
                   class="fa fa-bars fontmain1"
-                  onClick={() => history.push("/listview")}
+                  onClick={() => history.push("/orderview")}
                 ></i>
               </div>
               <div class="col-lg-12">
@@ -157,4 +177,4 @@ function Listview() {
   );
 }
 
-export default Listview;
+export default Orderview;

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import Orderheader from "../orders/orderheader";
+import React, { useEffect, useState } from "react";
 import "font-awesome/css/font-awesome.min.css";
+import { Navbar, Nav } from "react-bootstrap";
 import { Modal } from "react-bootstrap";
 import Ordercomponent from "../orders/ordercomponent";
 import Summaryorder from "../summary/summaryorder"
 import { useHistory,Link } from "react-router-dom";
+import { getToken } from "../../Utils/AuthOperations";
 import "./orders.css"
 
 const order = { orderId: "orderId", userId: "userId", details: new Map() };
 let orderedDate = [];
 
 function Orderlist() {
+  const [user, setUser] = useState("");
   const [show, setShow] = useState(false);
 
   const history = useHistory();
@@ -25,38 +27,74 @@ function Orderlist() {
     return;
   }
 
+  useEffect(() => {
+    console.log("orderheader", getToken());
+    
+      fetch("/get", {
+        method:"get",
+        headers: { Authorization: "Bearer " + getToken() },
+      })
+      .then((response) => {
+        setUser(response.data.data.get_user.name);
+      })
+      .catch((e) => {
+        console.log(e)
+      });
+  });
+
+
   const orderComponents = [
     {
       image: "shirt.jpg",
       description:
-        "It is a sequence of Latin words that, as they are positioned",
+        "Lorem Ipsum is simply dummy text of the printing",
       name: "Shirts",
       type: "Boolean",
     },
     {
       image: "tshirt.jpg",
       description:
-        "It is a sequence of Latin words that, as they are positioned",
+        "Lorem Ipsum is simply dummy text of the printing",
       name: "Tshirts",
       type: "Boolean",
     },
     {
       image: "jeans.jpg",
       description:
-        "It is a sequence of Latin words that, as they are positioned",
+        "Lorem Ipsum is simply dummy text of the printing",
       name: "Jeans",
     },
     {
       image: "trousers.jpg",
       description:
-        "It is a sequence of Latin words that, as they are positioned",
+        "Lorem Ipsum is simply dummy text of the printing",
       name: "Trousers",
       type: "Boolean",
     },
   ];
   return (
     <div>
-      <Orderheader />
+       <div>
+      <Navbar collapseOnSelect expand="lg" variant="dark" style={{color:"#5861AE",backgroundColor:"#5861AE"}}>
+        <Navbar.Brand href="#home" class="laundryhead" >
+          Laundry
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto"></Nav>
+          <Nav style={{fontWeight:"bold",color:"black"}}>
+            <Nav.Link href="#features">Pricing</Nav.Link>
+            <Nav.Link href="#features">Career</Nav.Link>
+            <Nav.Link href="#features">
+              <p class="signinlink">UserName
+                <img src={Image} class="img" alt="image1" />
+                {user}
+              </p>
+            </Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+    </div>
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-1 main-head">
@@ -76,7 +114,7 @@ function Orderlist() {
               <div class="col-lg-12">
                 <i
                   class="fa fa-bars fontmain"
-                  onClick={() => history.push("/listview")}
+                  onClick={() => history.push("/orderview")}
                 ></i>
               </div>
               <div class="col-lg-12">
@@ -88,7 +126,7 @@ function Orderlist() {
           </div>
           <div class="col-lg-11">
             <div class="row">
-              <div class="col-lg-2">
+              <div class="col-lg-2" style={{fontWeight:"bold"}}>
                 <p>Create Order</p>
               </div>
               <div class="col-lg-8"></div>
@@ -164,7 +202,7 @@ function Orderlist() {
                     </div>
                     <div class="col-lg-4">
                       <h6>Store Location</h6>
-                      <p>Near Phone Booth, 10th Road</p>
+                      <p>Near SBI, gandimaisamma</p>
                     </div>
                     <div class="col-lg-4">
                       <h6>Phone</h6>

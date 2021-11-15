@@ -1,10 +1,10 @@
-import React,{useEffect,createContext,useReducer,useContext} from 'react';
-import {BrowserRouter as Router,Switch,Link,Route} from "react-router-dom";
+import React,{createContext} from 'react';
+import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Register from "./components/register/register";
 import Dashboard from "./components/dashboard/dash";
 //import Orders from "./components/orders/orders"
 import Signup from "./components/signup/signup"
-import Listview from './components/dashboard/listview';
+import Orderview from './components/dashboard/orderview';
 import "./App.css"
 import Summary from "./components/summary/summary"
 import Orderlist from './components/orders/orderlist'
@@ -20,7 +20,7 @@ class App extends React.Component {
               <Route path="/dashboard" component={Dashboard}/>
               {/* <Route path="/orders" component={Orders}/> */}
               <Route path="/signup" component={Signup}/>
-              <Route path="/listview" component={Listview}/>
+              <Route path="/orderview" component={Orderview}/>
               <Route path="/summary" component={Summary}/>
               <Route path="/orderlist" component={Orderlist}/>
             </Switch>

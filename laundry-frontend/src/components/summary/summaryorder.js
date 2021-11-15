@@ -29,7 +29,7 @@ function Summaryorder(props) {
     );
     console.log("Hello");
     orderSuccessAlrt();
-    history.push("/listview");
+    history.push("/orderview");
   }
 
   return (

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./signup.css";
-import { BrowserRouter as Router, Switch, Link, Route,useHistory} from "react-router-dom";
+import { BrowserRouter as Link,useHistory} from "react-router-dom";
 import footercircle from "../../assets/img/footer-circle.jpg";
 import M from 'materialize-css';
 

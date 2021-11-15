@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import "./dash.css";
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+import { BrowserRouter as Link} from "react-router-dom";
 import user1 from "../../assets/img/user1.png";
 
 export default function Dashboard() {
@@ -96,7 +96,7 @@ export default function Dashboard() {
                   </li>
                   <li>
                     <a
-                      href="/listview"
+                      href="/orderview"
                       className="nav-link py-3 px-2"
                       title=""
                       data-bs-toggle="tooltip"
@@ -115,7 +115,7 @@ export default function Dashboard() {
           <div className="text-center">
             <p className="text-muted">No Orders Available</p>
             <Link to={"/orderlist"}>
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary"onClick={createlist}>
                 Create
               </button>
             </Link>

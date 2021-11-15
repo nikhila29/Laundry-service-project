@@ -1,8 +1,6 @@
 //import axios from "axios";
 import React, { useState } from "react";
 import moment from "moment";
-//import "./summary.css";
-import Summary from "../summary/summary";
 import Summaryfinal from "../summary/summaryfinal";
 import { Modal } from "react-bootstrap";
 import { getToken } from "../../Utils/AuthOperations";
@@ -91,7 +89,7 @@ function OrderedItems({
               </div>
               <div class="col-lg-4">
                 <h6>Store Address</h6>
-                <p>Near Phone Booth, 10th Road</p>
+                <p>Near UnionBank</p>
               </div>
               <div class="col-lg-4">
                 <h6>Phone</h6>
@@ -152,7 +150,7 @@ function OrderedItems({
                 <div class="card-body text-center">
                   <h6 class="card-title">Home</h6>
                   <p class="card-text">
-                    #4-132, A-Colony, Jamshedpur, Near SBI
+                    #3-136, sai-Colony, gandimaisamma, Near SBI
                   </p>
                 </div>
               </div>

@@ -155,7 +155,7 @@ function Summary() {
               <button
                 type="button"
                 className="itemsproceed"
-                onClick={() => history.push("/listview")}
+                onClick={() => history.push("/orderview")}
               >
                 Go to Orders
               </button>
