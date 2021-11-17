@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./signup.css";
 import { BrowserRouter as Link,useHistory} from "react-router-dom";
-import footercircle from "../../assets/img/footer-circle.jpg";
+//import footercircle from "../../assets/Footer.svg";
 import M from 'materialize-css';
 
 
@@ -415,9 +415,9 @@ export default function Signup() {
             </svg>
           </div>
         </div>
-        <div className="col-sm-2 text-center">
+        {/* <div className="col-sm-2 text-center">
           <img className="footer-circle" src={footercircle} />
-        </div>
+        </div> */}
       </div>
       <div className="bg-dark text-center p-1 align-items-center">
         <div className="col-md-12">

@@ -19,7 +19,7 @@ function Summaryorder(props) {
     });
 
     fetch(
-      "/Orders",
+      "/orders",
       {
         details: data,
         address: "Israel",

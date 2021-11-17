@@ -6,6 +6,7 @@ import Ordercomponent from "../orders/ordercomponent";
 import Summaryorder from "../summary/summaryorder"
 import { useHistory,Link } from "react-router-dom";
 import { getToken } from "../../Utils/AuthOperations";
+import image from "../../assets";
 import "./orders.css"
 
 const order = { orderId: "orderId", userId: "userId", details: new Map() };
@@ -27,20 +28,20 @@ function Orderlist() {
     return;
   }
 
-  useEffect(() => {
-    console.log("orderheader", getToken());
+  // useEffect(() => {
+  //   console.log("orderheader", getToken());
     
-      fetch("/get", {
-        method:"get",
-        headers: { Authorization: "Bearer " + getToken() },
-      })
-      .then((response) => {
-        setUser(response.data.data.get_user.name);
-      })
-      .catch((e) => {
-        console.log(e)
-      });
-  });
+  //     fetch("/get", {
+  //       method:"get",
+  //       headers: { Authorization: "Bearer " + getToken() },
+  //     })
+  //     .then((response) => {
+  //       setUser(response.data.data.get_user.name);
+  //     })
+  //     .catch((e) => {
+  //       console.log(e)
+  //     });
+  // });
 
 
   const orderComponents = [
@@ -71,6 +72,27 @@ function Orderlist() {
       name: "Trousers",
       type: "Boolean",
     },
+    {
+      image: "boxers.jpg",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing",
+      name: "Boxers",
+      type: "Boolean",
+    },
+    {
+      image: "joggers.jpg",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing",
+      name: "Joggers",
+      type: "Boolean",
+    },
+    {
+      image: "others.jpg",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing",
+      name: "Others",
+      type: "Boolean",
+    }
   ];
   return (
     <div>
@@ -87,7 +109,7 @@ function Orderlist() {
             <Nav.Link href="#features">Career</Nav.Link>
             <Nav.Link href="#features">
               <p class="signinlink">UserName
-                <img src={Image} class="img" alt="image1" />
+                <img src={Image} class="img" alt="User" />
                 {user}
               </p>
             </Nav.Link>

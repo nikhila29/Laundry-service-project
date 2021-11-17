@@ -35,7 +35,7 @@ function Orderview() {
         console.log(orders);
       })
       .catch((e) => {
-        alert("unAuthorized user");
+       console.log("unAuthorized user");
       });
   });
   return (
@@ -85,9 +85,9 @@ function Orderview() {
               </div>
               <div class="col-lg-12">
                 <i
-                  class="fa fa-sign-out fontmain"
+                  class="bi bi-power fs-2 icon"
                   onClick={() => {
-                    history.push("/dashboard");
+                    history.push("/");
                     clearToken();
                   }}
                 ></i>
@@ -156,13 +156,11 @@ function Orderview() {
                   <div class="col-lg-4">Phone</div>
                 </div>
                 <p>
-                  Ipsum molestiae natus adipisci modi eligendi? Debitis amet
-                  quae unde commodi aspernatur enim, consectetur. Cumque
-                  deleniti temporibus ipsam atque a dolores quisquam quisquam
-                  adipisci possimus laboriosam. Quibusdam facilis doloribus
-                  debitis! Sit quasi quod accusamus eos quod. Ab quos
-                  consequuntur eaque quo rem! Mollitia reiciendis porro quo
-                  magni incidunt dolore amet atque facilis ipsum deleniti rem!
+                Lorem Ipsum is simply dummy text of the printing and
+                 typesetting industry. Lorem Ipsum has been the industry's 
+                 standard dummy text ever since the 1500s, when an unknown 
+                printer took a galley of type and scrambled it to make a type
+                 specimen book.
                 </p>
               </Modal.Body>
             </Modal>

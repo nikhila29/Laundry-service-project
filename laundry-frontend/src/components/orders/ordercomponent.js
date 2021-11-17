@@ -76,7 +76,7 @@ function Ordercomponent(props) {
               name="item"
               type="text"
               src={`${process.env.PUBLIC_URL}/assets/${props.image}`}
-              alt="shirt"
+              alt="img"
               class="orderimg"
             />
           </div>

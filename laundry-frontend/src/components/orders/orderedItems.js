@@ -27,7 +27,7 @@ function OrderedItems({
 
   async function handleClickStatus() {
     
-      fetch(`/orders/${_id}`,
+      fetch(`/orders:id`,///orders/${_id}
         {},
         { method:"put",headers: { Authorization: `Bearer ${getToken()}` } }
       )
@@ -40,7 +40,7 @@ function OrderedItems({
     setShow(true);
     //setCancel(true);
     
-      fetch(`/orders/${_id}`, {
+      fetch(`/orders:id`, {
         method:"get",
         headers: { Authorization: `Bearer ${getToken()}` },
       })
@@ -54,7 +54,7 @@ function OrderedItems({
       <tr>
         <td>{order_id}</td>
         <td>{moment(createdAt).format("DD MMM YYYY,HH:mm")}</td>
-        <td>Jp Nagar</td>
+        <td>HayathNagar</td>
         <td>{address}</td>
         <td>+91 9988667788</td>
         <td>{total_quantity}</td>
@@ -85,7 +85,7 @@ function OrderedItems({
             <div class="row mainadd">
               <div class="col-lg-4">
                 <h6>Store Location</h6>
-                <p>Jp Nagar</p>
+                <p>HayathNagar</p>
               </div>
               <div class="col-lg-4">
                 <h6>Store Address</h6>
@@ -127,7 +127,7 @@ function OrderedItems({
               .reduce((acc, curr) => acc + parseInt(curr, 10), 0)}
           </div>
 
-          <div class="rate-head">Pick Up Charges : 90</div>
+          <div class="rate-head">Pick Up Charges :50</div>
 
           <div class="row totalcss my-3">
             <div class="col-lg-4"></div>
@@ -136,7 +136,7 @@ function OrderedItems({
               Total : Rs{" "}
               {orderDetails
                 .map((order) => order.price)
-                .reduce((acc, curr) => acc + parseInt(curr, 10), 90)}
+                .reduce((acc, curr) => acc + parseInt(curr, 10), )}
             </div>
           </div>
           <br />

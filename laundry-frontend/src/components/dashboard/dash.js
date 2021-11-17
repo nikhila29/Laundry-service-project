@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 import "./dash.css";
 import { BrowserRouter as Link} from "react-router-dom";
-import user1 from "../../assets/img/user1.png";
+import user1 from "../../assets/img1.png";
 
 export default function Dashboard() {
   const history = useHistory();
